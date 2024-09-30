@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "codecync3",
+    "stage": "codecync-stage"
+  }
+}

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="35" height="36" viewBox="0 0 35 36">
+  <g id="Group_45" data-name="Group 45" transform="translate(-1206.371 -2516.95)">
+    <g id="Rectangle_14" data-name="Rectangle 14" transform="translate(1206.371 2516.95)" fill="#0acf83" stroke="#fff" stroke-width="3">
+      <rect width="35" height="36" rx="15" stroke="none"/>
+      <rect x="1.5" y="1.5" width="32" height="33" rx="13.5" fill="none"/>
+    </g>
+    <g id="Group_44" data-name="Group 44">
+      <path id="Icon_awesome-phone-alt" data-name="Icon awesome-phone-alt" d="M15.284,11.118,11.843,9.643a.737.737,0,0,0-.86.212L9.458,11.717A11.39,11.39,0,0,1,4.013,6.272L5.875,4.748a.736.736,0,0,0,.212-.86L4.612.446A.742.742,0,0,0,3.767.019L.572.756A.737.737,0,0,0,0,1.475,14.257,14.257,0,0,0,14.258,15.734a.737.737,0,0,0,.719-.572l.737-3.2a.746.746,0,0,0-.431-.848Z" transform="translate(1215.951 2527.444)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

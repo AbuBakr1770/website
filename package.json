@@ -1,0 +1,59 @@
+{
+  "name": "codecync-web",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@chakra-ui/icons": "^2.1.1",
+    "@chakra-ui/react": "^2.4.6",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.0.1",
+    "@testing-library/user-event": "^14.1.0",
+    "@types/jest": "^28.1.8",
+    "@types/node": "^12.20.55",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "env-cmd": "^10.1.0",
+    "framer-motion": "^6.5.1",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-hook-form": "^7.47.0",
+    "react-icons": "^3.0.0",
+    "react-router-dom": "^6.6.1",
+    "react-scripts": "5.0.1",
+    "swiper": "^11.1.5",
+    "typescript": "^4.9.5",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start:dev": "env-cmd -f .env.development react-scripts start",
+    "start:prod": "env-cmd -f .env.production react-scripts start",
+    "build:stage": "env-cmd -f .env.stage react-scripts build",
+    "build:prod": "env-cmd -f .env.production react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "theme:light": "chakra-cli tokens ./src/themes/light.ts"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@chakra-ui/cli": "^2.4.1",
+    "css-loader": "^6.7.3",
+    "dts-css-modules-loader": "^2.0.1",
+    "prettier": "^2.8.2"
+  }
+}

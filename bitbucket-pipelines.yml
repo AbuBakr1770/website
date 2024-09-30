@@ -1,0 +1,40 @@
+image: node
+
+pipelines:
+  branches:
+    main:
+      - step:
+          caches:
+            - node
+          name: Building Production
+          script:
+            - yarn && yarn build:prod
+          artifacts:
+            - build/**
+
+      - step:
+          name: Deploy to Firebase
+          deployment: production
+          script:
+            - pipe: atlassian/firebase-deploy:0.2.1
+              variables:
+                FIREBASE_TOKEN: 1//0gHxFPCD5wvrZCgYIARAAGBASNwF-L9Ir8rQS36C8MGKH4Al5uE8FCWdyQZRX0VQ8VdpKOhFjJAVLL9yU_SJkdS-MbqNGQOWXbcE
+                PROJECT_ID: codecync3
+    stage:
+      - step:
+          caches:
+            - node
+          name: Building Stage
+          script:
+            - yarn && yarn build:stage
+          artifacts:
+            - build/**
+
+      - step:
+          name: Deploying Stage to Firebase
+          deployment: stage
+          script:
+            - pipe: atlassian/firebase-deploy:0.2.1
+              variables:
+                KEY_FILE: $KEY_FILE
+                PROJECT_ID: codecync-stage
