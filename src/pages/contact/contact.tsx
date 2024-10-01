@@ -1,118 +1,49 @@
-import {
-  Box,
-  Button,
-  Center,
-  Heading,
-  Input,
-  Text,
-  Textarea,
-  VStack,
-} from "@chakra-ui/react";
-import {Fragment} from "react";
-import {Controller, Form, useForm} from "react-hook-form";
+import { Box, Container } from "@chakra-ui/react";
+import { useContext, useRef } from "react";
+import { useForm } from "react-hook-form";
+import image from "../../AIQ/Home-BG.png";
+import Navbar from "../../components/navbar";
+import { AppContext } from "../../hooks/contexts";
+import ContactForm from "./Sections/ContactForm";
+import ContactMap from "./Sections/ContactMap";
+import HeroSectionTextContact from "./Sections/HeroSections";
 
 export default function Contact() {
-  const {
-    control,
-    handleSubmit
-  } = useForm<{
+  const { control, handleSubmit } = useForm<{
     name: string;
     email: string;
     message: string;
   }>();
-  return (
-    <Center my="44">
-      <VStack spacing={30}>
-        <Heading maxW="750px" textAlign="center" color="primary.700">
-          Get In Touch
-        </Heading>
-        <Box bgColor="gray.100" p="14" borderRadius="3xl">
-          <Form
-            control={control}
-            onSubmit={(e) => {
-              handleSubmit(
-                (data) => {},
-                (error) => {
-                  console.log(error);
-                }
-              )(e.event);
-            }}
-          >
-            <VStack w="500px">
-              <Controller
-                rules={{
-                  required: {
-                    value: true,
-                    message: "Name is required",
-                  },
-                }}
-                control={control}
-                name="name"
-                render={({field, fieldState: {error}}) => (
-                  <Fragment>
-                    <Input
-                      placeholder="Name"
-                      bgColor="white"
-                      size="lg"
-                      isInvalid={!!error}
-                      {...field}
-                    />
-                    <Text color="red">{error?.message}</Text>
-                  </Fragment>
-                )}
-              />
-              <Controller
-                rules={{
-                  required: {
-                    value: true,
-                    message: "Email is required",
-                  },
-                }}
-                control={control}
-                name="email"
-                render={({field, fieldState: {error}}) => (
-                  <Fragment>
-                    <Input
-                      placeholder="Email"
-                      bgColor="white"
-                      size="lg"
-                      isInvalid={!!error}
-                      {...field}
-                    />
-                    <Text color="red">{error?.message}</Text>
-                  </Fragment>
-                )}
-              />
-              <Controller
-                rules={{
-                  required: {
-                    value: true,
-                    message: "Message is required",
-                  },
-                }}
-                control={control}
-                name="message"
-                render={({field, fieldState: {error}}) => (
-                  <Fragment>
-                    <Textarea
-                      placeholder="Message"
-                      bgColor="white"
-                      size="lg"
-                      isInvalid={!!error}
-                      {...field}
-                    />
-                    <Text color="red">{error?.message}</Text>
-                  </Fragment>
-                )}
-              />
 
-              <Button w="full" type="submit">
-                Submit
-              </Button>
-            </VStack>
-          </Form>
-        </Box>
-      </VStack>
-    </Center>
+  const navbarContext = useContext(AppContext);
+  const ContainerRef = useRef<HTMLDivElement>(null);
+  return (
+    <>
+      <Container
+        maxW="100%"
+        className="123456789"
+        h={`calc(100vh - ${navbarContext.Navbarheight}px)`}
+        backgroundImage={image}
+        backgroundSize={"cover"}
+        // backgroundImage={image}
+        position="relative"
+        ref={ContainerRef}
+        overflow="hidden"
+      >
+        <Navbar />
+        <Box
+          position="absolute"
+          top={0}
+          left={0}
+          right={0}
+          bottom={0}
+          bg="rgba(81, 102, 127, 0.7)" // Custom blue shade with opacity
+          zIndex={1} // Ensure the overlay is on top of the background image
+        />
+        <HeroSectionTextContact />
+      </Container>
+      <ContactForm />
+      <ContactMap />
+    </>
   );
 }
